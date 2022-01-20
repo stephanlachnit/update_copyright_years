@@ -1,0 +1,34 @@
+# SPDX-FileCopyrightText: 2022 Stephan Lachnit <stephanlachnit@debian.org>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+name: Lint
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  flake8:
+    name: flake8 Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - run: pip install flake8
+      - run: flake8 update_copyright_years.py
+  pylint:
+    name: pylint Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - run: pip install pylint
+      - run: pylint update_copyright_years.py
+  reuse:
+    name: REUSE Compliance Check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: fsfe/reuse-action@v1

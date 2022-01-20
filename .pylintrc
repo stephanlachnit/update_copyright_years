@@ -1,0 +1,18 @@
+# SPDX-FileCopyrightText: 2022 Stephan Lachnit <stephanlachnit@debian.org>
+#
+# SPDX-License-Identifier: CC0-1.0
+
+[MASTER]
+
+fail-under = 10.0
+
+[STRING]
+
+check-quote-consistency = yes
+
+[FORMAT]
+
+max-line-length = 159
+expected-line-ending-format = LF
+indent-after-paren = 4
+indent-string = '    '
